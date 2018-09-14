@@ -1,0 +1,87 @@
+<HTML>
+   <HEAD>
+    	<link href="styles.css" rel="stylesheet" />
+   
+		<TITLE>
+			IOT Vacation house survelance 
+		</TITLE
+	    
+		<link href>
+		
+		<script type="text/javascript">
+			var HttpsClient = function() 
+			{
+				this.get = function(aUrl, aCallback) 
+				{
+					var anHttpsRequest = new XMLHttpRequest();
+					anHttpsRequest.onreadystatechange = function() 
+					{ 
+						if (anHttpsRequest.readyState == 4 && anHttpsRequest.status == 200)
+						aCallback(anHttpsRequest.responseText);
+					}
+					anHttpsRequest.open( "GET", aUrl, true ); 
+					anHttpsRequest.send( null ); 
+				}
+			}
+			 
+			function HEAT_ON() 
+		{
+			var onurl='https://api.thingspeak.com/update?api_key=DV0V35Q54WE8ZQVM&format=json&field1=2';
+			var client = new HttpsClient();
+			 
+			client.get(onurl, function(response) 
+			{ 
+				var response1 = JSON.parse(response);
+				document.getElementById("field1").innerHTML = response1.field1;
+			});  
+			
+			alert('wait a few seconds, the heat is being turned on');
+		}
+		
+		function HEAT_OFF() 
+		{
+			var offurl='https://api.thingspeak.com/update?api_key=DV0V35Q54WE8ZQVM&format=json&field1=1';
+			var client = new HttpsClient();
+		 
+			client.get(offurl, function(response) 
+			{ 
+				var response1 = JSON.parse(response);
+				document.getElementById("field1").innerHTML = response1.field1;
+			});  
+			
+			alert('wait a few seconds, the heat is being turned off');
+		}
+	 </script>
+	 
+	</link href>
+	
+   </HEAD>
+<BODY>
+
+
+
+	<H1>Dette er en test hjemmeside</H1>
+	<P>her ser vi grafer med live stream fra min lejlighed.</P> 
+
+    <div id="temp-graph">
+		<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/573876/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+    </div>
+
+    <div id="temp-status">
+		<iframe width="460" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/574957/widgets/12940"></iframe>
+    </div>
+
+	<div id="temp-text">
+		<H4>OFF -- ON</H4>
+	</div>
+	
+	<button id="temp_btn_ON" onclick="HEAT_ON()">turn heat ON. </button>
+
+	<button id="temp_btn_OFF" onclick="HEAT_OFF()">turn heat OFF.</button>
+
+	
+	
+	
+</BODY>
+</HTML>
+

@@ -1,0 +1,48 @@
+
+#temp-graph{
+    font-size: 18px;
+    color: #575ed8;
+    position: absolute;
+	left: 580px;
+    top: 100px;
+}
+
+#temp-status{
+	font-size: 18px;
+    color: #575ed8;
+    position: absolute;
+	left: 580px;
+    top: 400px;
+}
+
+#temp-text{
+	font-size: 18px;
+    color: black;
+    position: absolute;
+	left: 768px;
+    top: 530px;
+}
+
+#temp_btn_ON{
+	font-size: 22px;
+    color: black;
+    text-align: center;
+	background-color: red;
+    position: absolute;
+	left: 720px;
+    top: 670px;
+	height: 30px;
+	width: 190px;
+}
+
+#temp_btn_OFF{
+	font-size: 22px;
+    color: black;
+    text-align: center;
+	background-color: red;
+    position: absolute;
+	left: 720px;
+    top: 720px;
+	height: 30px;
+	width: 190px;
+}
