@@ -4,11 +4,9 @@
    
 		<TITLE>
 			IOT Vacation house survelance 
-		</TITLE
+		</TITLE>
 	    
-		<link href>
-		
-		<script type="text/javascript">
+		<script>
 			var HttpsClient = function() 
 			{
 				this.get = function(aUrl, aCallback) 
@@ -32,9 +30,12 @@
 			client.get(onurl, function(response) 
 			{ 
 				var response1 = JSON.parse(response);
-				document.getElementById("field1").innerHTML = response1.field1;
+				if (response1.field1 == 2)
+					{
+						document.getElementById("temp_btn_ON").style.backgroundColor = "green";
+						document.getElementById("temp_btn_OFF").style.backgroundColor = "red";
+					}	
 			});  
-			
 			alert('wait a few seconds, the heat is being turned on');
 		}
 		
@@ -46,20 +47,19 @@
 			client.get(offurl, function(response) 
 			{ 
 				var response1 = JSON.parse(response);
-				document.getElementById("field1").innerHTML = response1.field1;
+				if (response1.field1 == 1)
+					{
+						document.getElementById("temp_btn_OFF").style.backgroundColor = "green";
+						document.getElementById("temp_btn_ON").style.backgroundColor = "red";
+					}
 			});  
-			
 			alert('wait a few seconds, the heat is being turned off');
 		}
 	 </script>
 	 
-	</link href>
 	
    </HEAD>
 <BODY>
-
-
-
 	<H1>Dette er en test hjemmeside</H1>
 	<P>her ser vi grafer med live stream fra min lejlighed.</P> 
 
@@ -79,9 +79,6 @@
 
 	<button id="temp_btn_OFF" onclick="HEAT_OFF()">turn heat OFF.</button>
 
-	
-	
-	
 </BODY>
 </HTML>
 
