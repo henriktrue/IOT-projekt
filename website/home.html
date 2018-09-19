@@ -34,6 +34,7 @@
 					{
 						document.getElementById("temp_btn_ON").style.backgroundColor = "green";
 						document.getElementById("temp_btn_OFF").style.backgroundColor = "red";
+						document.getElementById("temp-status").style.backgroundImage = "url('on.png')"
 					}	
 			});  
 			alert('wait a few seconds, the heat is being turned on');
@@ -51,6 +52,43 @@
 					{
 						document.getElementById("temp_btn_OFF").style.backgroundColor = "green";
 						document.getElementById("temp_btn_ON").style.backgroundColor = "red";
+						document.getElementById("temp-status").style.backgroundImage = "url('off.png')"
+					}
+			});  
+			alert('wait a few seconds, the heat is being turned off');
+		}
+		
+			function LIGHTS_ON() 
+		{
+			var onurl='https://api.thingspeak.com/update?api_key=DV0V35Q54WE8ZQVM&format=json&field2=2';
+			var client = new HttpsClient();
+			 
+			client.get(onurl, function(response) 
+			{ 
+				var response1 = JSON.parse(response);
+				if (response1.field2 == 2)
+					{
+						document.getElementById("lights_btn_ON").style.backgroundColor = "green";
+						document.getElementById("lights_btn_OFF").style.backgroundColor = "red";
+						document.getElementById("lights-status").style.backgroundImage = "url('on.png')"
+					}	
+			});  
+			alert('wait a few seconds, the heat is being turned on');
+		}
+		
+		function LIGHTS_OFF() 
+		{
+			var offurl='https://api.thingspeak.com/update?api_key=DV0V35Q54WE8ZQVM&format=json&field2=1';
+			var client = new HttpsClient();
+		 
+			client.get(offurl, function(response) 
+			{ 
+				var response1 = JSON.parse(response);
+				if (response1.field2 == 1)
+					{
+						document.getElementById("lights_btn_OFF").style.backgroundColor = "green";
+						document.getElementById("lights_btn_ON").style.backgroundColor = "red";
+						document.getElementById("lights-status").style.backgroundImage = "url('off.png')"
 					}
 			});  
 			alert('wait a few seconds, the heat is being turned off');
@@ -63,21 +101,26 @@
 	<H1>Dette er en test hjemmeside</H1>
 	<P>her ser vi grafer med live stream fra min lejlighed.</P> 
 
-    <div id="temp-graph">
-		<iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/573876/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+	    <div id="light-graph">
+		<iframe width="550" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/apps/plugins/248849"></iframe>
     </div>
+	
+    <div id="temp-graph">
+		<iframe width="550" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/apps/plugins/248058"></iframe>
+    </div>
+
 
     <div id="temp-status">
-		<iframe width="460" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/574957/widgets/12940"></iframe>
-    </div>
 
-	<div id="temp-text">
-		<H4>OFF -- ON</H4>
-	</div>
+    </div>
 	
 	<button id="temp_btn_ON" onclick="HEAT_ON()">turn heat ON. </button>
 
 	<button id="temp_btn_OFF" onclick="HEAT_OFF()">turn heat OFF.</button>
+	
+	<button id="lights_btn_ON" onclick="LIGHTS_ON()">turn lights ON. </button>
+
+	<button id="lights_btn_OFF" onclick="LIGHTS_OFF()">turn lights OFF.</button>
 
 </BODY>
 </HTML>

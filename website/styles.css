@@ -1,26 +1,25 @@
-
 #temp-graph{
     font-size: 18px;
     color: #575ed8;
     position: absolute;
-	left: 580px;
+	left: 620px;
+    top: 100px;
+}
+
+#light-graph{
+    font-size: 18px;
+    color: #575ed8;
+    position: absolute;
+	left: 20px;
     top: 100px;
 }
 
 #temp-status{
 	font-size: 18px;
-    color: #575ed8;
     position: absolute;
-	left: 580px;
+	left: 620px;
     top: 400px;
-}
-
-#temp-text{
-	font-size: 18px;
-    color: black;
-    position: absolute;
-	left: 768px;
-    top: 530px;
+	background-color: red;
 }
 
 #temp_btn_ON{
@@ -29,7 +28,7 @@
     text-align: center;
 	background-color: red;
     position: absolute;
-	left: 720px;
+	left: 760px;
     top: 670px;
 	height: 30px;
 	width: 190px;
@@ -41,7 +40,31 @@
     text-align: center;
 	background-color: red;
     position: absolute;
-	left: 720px;
+	left: 760px;
+    top: 720px;
+	height: 30px;
+	width: 190px;
+}
+
+#lights_btn_ON{
+	font-size: 22px;
+    color: black;
+    text-align: center;
+	background-color: red;
+    position: absolute;
+	left: 40px;
+    top: 670px;
+	height: 30px;
+	width: 190px;
+}
+
+#lights_btn_OFF{
+	font-size: 22px;
+    color: black;
+    text-align: center;
+	background-color: red;
+    position: absolute;
+	left: 40px;
     top: 720px;
 	height: 30px;
 	width: 190px;
