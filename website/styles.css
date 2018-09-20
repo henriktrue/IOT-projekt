@@ -1,17 +1,47 @@
+body {
+   background-image: url("background.png");
+   background-color: #cccccc;
+   background-size: cover;
+}
+
 #temp-graph{
-    font-size: 18px;
-    color: #575ed8;
     position: absolute;
-	left: 620px;
-    top: 100px;
+	height:35%;
+	width:30%;
+	top: 18%;
+	left: 50%;
+	align: center;
 }
 
 #light-graph{
-    font-size: 18px;
-    color: #575ed8;
     position: absolute;
-	left: 20px;
-    top: 100px;
+	height:35%;
+	width:30%;
+	top: 18%;
+	left: 15%;
+}
+
+#white-background{
+	background-color: white;
+    position: absolute;
+	top: 5%;
+	left: 10%;
+	right: 10%;
+	width: 80%;
+	height: 90%;
+	opacity: 0.9;
+}
+
+#heading{
+	position: absolute;
+	top: 4%;
+	left: 42%;
+}
+
+#text{
+	position: absolute;
+	top: 10%;
+	left: 42%;
 }
 
 #temp-status{
@@ -23,49 +53,45 @@
 }
 
 #temp_btn_ON{
-	font-size: 22px;
     color: black;
     text-align: center;
 	background-color: red;
+	width:10%;
+	height:5%;
     position: absolute;
-	left: 760px;
-    top: 670px;
-	height: 30px;
-	width: 190px;
+	top: 75%;
+	left: 27%;
 }
 
 #temp_btn_OFF{
-	font-size: 22px;
     color: black;
     text-align: center;
 	background-color: red;
+	width:10%;
+	height:5%;
     position: absolute;
-	left: 760px;
-    top: 720px;
-	height: 30px;
-	width: 190px;
+	top: 68%;
+	left: 27%;
 }
 
 #lights_btn_ON{
-	font-size: 22px;
     color: black;
     text-align: center;
 	background-color: red;
+	width:10%;
+	height:5%;
     position: absolute;
-	left: 40px;
-    top: 670px;
-	height: 30px;
-	width: 190px;
+	top: 75%;
+	left: 57%;
 }
 
 #lights_btn_OFF{
-	font-size: 22px;
     color: black;
     text-align: center;
 	background-color: red;
+	width:10%;
+	height:5%;
     position: absolute;
-	left: 40px;
-    top: 720px;
-	height: 30px;
-	width: 190px;
+	top: 68%;
+	left: 57%;
 }

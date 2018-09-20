@@ -98,16 +98,15 @@
 	
    </HEAD>
 <BODY>
-	<H1>Dette er en test hjemmeside</H1>
-	<P>her ser vi grafer med live stream fra min lejlighed.</P> 
+	<iframe id="white-background" style="border: 1px solid #cccccc;" ></iframe>
 
-	    <div id="light-graph">
-		<iframe width="550" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/apps/plugins/248849"></iframe>
-    </div>
+	<H1 id="heading"> Vacation house status </H1>
 	
-    <div id="temp-graph">
-		<iframe width="550" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/apps/plugins/248058"></iframe>
-    </div>
+	<P id="text">- these are measurements of my appartment.</P> 
+
+	<iframe id="light-graph" src="https://thingspeak.com/apps/plugins/248849"></iframe>
+	
+	<iframe id="temp-graph" src="https://thingspeak.com/apps/plugins/248058"></iframe>
 
 
     <div id="temp-status">
