@@ -37,7 +37,7 @@ body {
 	top: 178%;
 	left: 30%;
 	background-size: cover;
-	opacity: 0.9;
+	opacity: 0.5;
 }
 
 #white-background{
@@ -49,6 +49,10 @@ body {
 	width: 80%;
 	height: 220%;
 	opacity: 0.95;
+	border-width: 5px;
+	border-color: #A901DB;
+	border-style: solid;
+	border-radius: 10px;
 }
 
 #heading{
@@ -65,13 +69,13 @@ body {
 
 #lights-text{
 	position: absolute;
-	top: 118%;
+	top: 15%;
 	left: 45%;
 }
 
 #temp-text{
 	position: absolute;
-	top: 15%;
+	top: 118%;
 	left: 39%;
 }
 
