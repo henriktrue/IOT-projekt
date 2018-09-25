@@ -32,9 +32,9 @@
 				var response1 = JSON.parse(response);
 				if (response1.field1 == 2)
 					{
+						document.getElementById("temp-status").style.backgroundImage = "url('lampon.png')";
 						document.getElementById("temp_btn_ON").style.backgroundColor = "green";
-						document.getElementById("temp_btn_OFF").style.backgroundColor = "red";
-						document.getElementById("temp-status").style.backgroundImage = "url('on.png')"
+						document.getElementById("temp_btn_OFF").style.backgroundColor = "grey";
 					}	
 			});  
 			alert('wait a few seconds, the heat is being turned on');
@@ -50,9 +50,9 @@
 				var response1 = JSON.parse(response);
 				if (response1.field1 == 1)
 					{
+						document.getElementById("temp-status").style.backgroundImage = "url('lampoff.png')";
 						document.getElementById("temp_btn_OFF").style.backgroundColor = "green";
-						document.getElementById("temp_btn_ON").style.backgroundColor = "red";
-						document.getElementById("temp-status").style.backgroundImage = "url('off.png')"
+						document.getElementById("temp_btn_ON").style.backgroundColor = "grey";
 					}
 			});  
 			alert('wait a few seconds, the heat is being turned off');
@@ -60,17 +60,17 @@
 		
 			function LIGHTS_ON() 
 		{
-			var onurl='https://api.thingspeak.com/update?api_key=DV0V35Q54WE8ZQVM&format=json&field2=2';
+			var onurl='https://api.thingspeak.com/update?api_key=UZAQIZFFUY0DHRGR&format=json&field1=2';
 			var client = new HttpsClient();
 			 
 			client.get(onurl, function(response) 
 			{ 
 				var response1 = JSON.parse(response);
-				if (response1.field2 == 2)
+				if (response1.field1 == 2)
 					{
+						document.getElementById("light-status").style.backgroundImage = "url('lampon.png')";
 						document.getElementById("lights_btn_ON").style.backgroundColor = "green";
-						document.getElementById("lights_btn_OFF").style.backgroundColor = "red";
-						document.getElementById("lights-status").style.backgroundImage = "url('on.png')"
+						document.getElementById("lights_btn_OFF").style.backgroundColor = "grey";
 					}	
 			});  
 			alert('wait a few seconds, the heat is being turned on');
@@ -78,40 +78,85 @@
 		
 		function LIGHTS_OFF() 
 		{
-			var offurl='https://api.thingspeak.com/update?api_key=DV0V35Q54WE8ZQVM&format=json&field2=1';
+			var offurl='https://api.thingspeak.com/update?api_key=UZAQIZFFUY0DHRGR&format=json&field1=1';
 			var client = new HttpsClient();
 		 
 			client.get(offurl, function(response) 
 			{ 
 				var response1 = JSON.parse(response);
-				if (response1.field2 == 1)
+				if (response1.field1 == 1)
 					{
+						document.getElementById("light-status").style.backgroundImage = "url('lampoff.png')";
 						document.getElementById("lights_btn_OFF").style.backgroundColor = "green";
-						document.getElementById("lights_btn_ON").style.backgroundColor = "red";
-						document.getElementById("lights-status").style.backgroundImage = "url('off.png')"
+						document.getElementById("lights_btn_ON").style.backgroundColor = "grey";
 					}
 			});  
 			alert('wait a few seconds, the heat is being turned off');
 		}
+		
+		function STARTUP() 
+		{
+			var url1='https://api.thingspeak.com/channels/574957/fields/1.json?results=1';
+			var url2='https://api.thingspeak.com/channels/583357/fields/1.json?results=1';
+			
+			var client1 = new HttpsClient();
+			var client2 = new HttpsClient();
+		 
+			client1.get(url1, function(response) 
+			{ 
+				var response1 = JSON.parse(response);
+				if (response1.feeds[0].field1 == 1)
+					{
+							document.getElementById("temp-status").style.backgroundImage = "url('lampoff.png')";
+							document.getElementById("temp_btn_OFF").style.backgroundColor = "green";	
+							
+					}
+					
+				if (response1.feeds[0].field1 == 2)
+					{
+							document.getElementById("temp-status").style.backgroundImage = "url('lampon.png')";
+							document.getElementById("temp_btn_ON").style.backgroundColor = "green";						
+					}
+			}); 
+
+			client2.get(url2, function(response) 
+			{ 
+				var response1 = JSON.parse(response);
+				if (response1.feeds[0].field1 == 1)
+					{
+							document.getElementById("light-status").style.backgroundImage = "url('lampoff.png')";
+							document.getElementById("lights_btn_OFF").style.backgroundColor = "green";	
+							
+					}
+					
+				if (response1.feeds[0].field1 == 2)
+					{
+							document.getElementById("light-status").style.backgroundImage = "url('lampon.png')";
+							document.getElementById("lights_btn_ON").style.backgroundColor = "green";						
+					}
+			}); 
+
+			
+		}
+		
+		
 	 </script>
-	 
-	
    </HEAD>
-<BODY>
+
+<BODY onload = "STARTUP()">
 	<iframe id="white-background" style="border: 1px solid #cccccc;" ></iframe>
 
 	<H1 id="heading"> Vacation house status </H1>
 	
 	<P id="text">- these are measurements of my appartment.</P> 
-
+	
 	<iframe id="light-graph" src="https://thingspeak.com/apps/plugins/248849"></iframe>
 	
 	<iframe id="temp-graph" src="https://thingspeak.com/apps/plugins/248058"></iframe>
 
-
-    <div id="temp-status">
-
-    </div>
+	<iframe id="light-status"></iframe>
+	
+	<iframe id="temp-status"></iframe>
 	
 	<button id="temp_btn_ON" onclick="HEAT_ON()">turn heat ON. </button>
 
@@ -120,7 +165,6 @@
 	<button id="lights_btn_ON" onclick="LIGHTS_ON()">turn lights ON. </button>
 
 	<button id="lights_btn_OFF" onclick="LIGHTS_OFF()">turn lights OFF.</button>
-
 </BODY>
 </HTML>
 

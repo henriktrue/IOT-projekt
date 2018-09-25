@@ -21,6 +21,26 @@ body {
 	left: 15%;
 }
 
+#light-status{
+    position: absolute;
+	width:6%;
+	height: 22%;
+	top: 65%;
+	left: 27%;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+#temp-status{
+    position: absolute;
+	width:6%;
+	height: 22%;
+	top: 65%;
+	left: 62%;
+	background-size: cover;
+	opacity: 0.9;
+}
+
 #white-background{
 	background-color: white;
     position: absolute;
@@ -44,54 +64,46 @@ body {
 	left: 42%;
 }
 
-#temp-status{
-	font-size: 18px;
-    position: absolute;
-	left: 620px;
-    top: 400px;
-	background-color: red;
-}
-
-#temp_btn_ON{
-    color: black;
-    text-align: center;
-	background-color: red;
-	width:10%;
-	height:5%;
-    position: absolute;
-	top: 75%;
-	left: 27%;
-}
-
-#temp_btn_OFF{
-    color: black;
-    text-align: center;
-	background-color: red;
-	width:10%;
-	height:5%;
-    position: absolute;
-	top: 68%;
-	left: 27%;
-}
-
 #lights_btn_ON{
     color: black;
     text-align: center;
-	background-color: red;
-	width:10%;
-	height:5%;
+	background-color: grey;
+	width:13%;
+	height:7%;
     position: absolute;
-	top: 75%;
-	left: 57%;
+	top: 55.5%;
+	left: 31%;
 }
 
 #lights_btn_OFF{
     color: black;
     text-align: center;
-	background-color: red;
-	width:10%;
-	height:5%;
+	background-color: grey;
+	width:13%;
+	height:7%;
     position: absolute;
-	top: 68%;
-	left: 57%;
+	top: 55.5%;
+	left: 16%;
+}
+
+#temp_btn_ON{
+    color: black;
+    text-align: center;
+	background-color: grey;
+	width:13%;
+	height:7%;
+    position: absolute;
+	top: 55.5%;
+	left: 66%;
+}
+
+#temp_btn_OFF{
+    color: black;
+    text-align: center;
+	background-color: grey;
+	width:13%;
+	height:7%;
+    position: absolute;
+	top: 55.5%;
+	left: 51%;
 }
