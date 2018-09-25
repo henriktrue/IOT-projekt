@@ -6,36 +6,36 @@ body {
 
 #temp-graph{
     position: absolute;
-	height:35%;
-	width:60%;
+	height:25%;
+	width:40%;
 	top: 128%;
-	left: 20%;
+	left: 30%;
 }
 
 #light-graph{
     position: absolute;
-	height:35%;
-	width:60%;
+	height:25%;
+	width:40%;
 	top: 23%;
-	left: 20%;
+	left: 30%;
 }
 
 #light-status{
     position: absolute;
-	width: 24%;
+	width: 38%;
 	height: 38%;
 	top: 73%;
-	left: 37%;
+	left: 30%;
 	background-size: cover;
 	opacity: 0.9;
 }
 
 #temp-status{
     position: absolute;
-	width: 24%;
+	width: 38%;
 	height: 38%;
 	top: 178%;
-	left: 37%;
+	left: 30%;
 	background-size: cover;
 	opacity: 0.9;
 }
