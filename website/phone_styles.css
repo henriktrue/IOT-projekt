@@ -7,23 +7,23 @@ body {
 #temp-graph{
     position: absolute;
 	height:25%;
-	width:40%;
+	width:45%;
 	top: 128%;
-	left: 30%;
+	left: 28%;
 }
 
 #light-graph{
     position: absolute;
 	height:25%;
-	width:40%;
+	width:45%;
 	top: 23%;
-	left: 30%;
+	left: 28%;
 }
 
 #light-status{
     position: absolute;
 	width: 38%;
-	height: 38%;
+	height: 42%;
 	top: 73%;
 	left: 30%;
 	background-size: cover;
@@ -33,7 +33,7 @@ body {
 #temp-status{
     position: absolute;
 	width: 38%;
-	height: 38%;
+	height: 42%;
 	top: 178%;
 	left: 30%;
 	background-size: cover;
