@@ -1,4 +1,5 @@
 body {
+   background-image: url("phone_background.png");
    background-color: #red;
    background-size: cover;
 }
@@ -6,36 +7,35 @@ body {
 #temp-graph{
     position: absolute;
 	height:35%;
-	width:30%;
-	top: 18%;
-	left: 50%;
-	align: center;
+	width:60%;
+	top: 128%;
+	left: 20%;
 }
 
 #light-graph{
     position: absolute;
 	height:35%;
-	width:30%;
-	top: 18%;
-	left: 15%;
+	width:60%;
+	top: 23%;
+	left: 20%;
 }
 
 #light-status{
     position: absolute;
-	width:6%;
-	height: 22%;
-	top: 65%;
-	left: 27%;
+	width: 24%;
+	height: 38%;
+	top: 73%;
+	left: 37%;
 	background-size: cover;
 	opacity: 0.9;
 }
 
 #temp-status{
     position: absolute;
-	width:6%;
-	height: 22%;
-	top: 65%;
-	left: 62%;
+	width: 24%;
+	height: 38%;
+	top: 178%;
+	left: 37%;
 	background-size: cover;
 	opacity: 0.9;
 }
@@ -47,41 +47,53 @@ body {
 	left: 10%;
 	right: 10%;
 	width: 80%;
-	height: 90%;
-	opacity: 0.9;
+	height: 220%;
+	opacity: 0.95;
 }
 
 #heading{
 	position: absolute;
 	top: 4%;
-	left: 42%;
+	left: 32%;
 }
 
 #text{
 	position: absolute;
 	top: 10%;
-	left: 42%;
+	left: 33%;
+}
+
+#lights-text{
+	position: absolute;
+	top: 15%;
+	left: 45%;
+}
+
+#temp-text{
+	position: absolute;
+	top: 118%;
+	left: 39%;
 }
 
 #lights_btn_ON{
     color: black;
     text-align: center;
 	background-color: grey;
-	width:13%;
-	height:7%;
+	width:33%;
+	height:10%;
     position: absolute;
-	top: 55.5%;
-	left: 31%;
+	top: 60.5%;
+	left: 52%;
 }
 
 #lights_btn_OFF{
     color: black;
     text-align: center;
 	background-color: grey;
-	width:13%;
-	height:7%;
+	width:33%;
+	height:10%;
     position: absolute;
-	top: 55.5%;
+	top: 60.5%;
 	left: 16%;
 }
 
@@ -89,20 +101,20 @@ body {
     color: black;
     text-align: center;
 	background-color: grey;
-	width:13%;
-	height:7%;
+	width:33%;
+	height:10%;
     position: absolute;
-	top: 55.5%;
-	left: 66%;
+	top: 165.5%;
+	left: 52%;
 }
 
 #temp_btn_OFF{
     color: black;
     text-align: center;
 	background-color: grey;
-	width:13%;
-	height:7%;
+	width:33%;
+	height:10%;
     position: absolute;
-	top: 55.5%;
-	left: 51%;
+	top: 165.5%;
+	left: 16%;
 }
