@@ -65,13 +65,13 @@ body {
 
 #lights-text{
 	position: absolute;
-	top: 15%;
+	top: 118%;
 	left: 45%;
 }
 
 #temp-text{
 	position: absolute;
-	top: 118%;
+	top: 15%;
 	left: 39%;
 }
 
