@@ -1,6 +1,6 @@
 <HTML>
    <HEAD>
-    	<link href="styles.css" rel="stylesheet" />
+    	<link href="phone_styles.css" rel="stylesheet" />
    
 		<TITLE>
 			IOT Vacation house survelance 
@@ -96,10 +96,7 @@
 		
 		function STARTUP() 
 		{
-			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-			location.href = '/mobile.html';
-}
-			
+		
 			var url1='https://api.thingspeak.com/channels/574957/fields/1.json?results=1';
 			var url2='https://api.thingspeak.com/channels/583357/fields/1.json?results=1';
 			
