@@ -3,53 +3,68 @@
 TCPClient client;
 
 //reading AC-unit webhook channel
-unsigned long LEDS_ChannelNumber = 574957;
-const char * myReadAPIKey = "3ZJRY2P0QFQDGRYV";
+unsigned long AC_UNIT_LEDS_ChannelNumber = 574957;
+unsigned long LIGHTS_LEDS_ChannelNumber = 583357;
+
+const char * myReadAPIKey1 = "3ZJRY2P0QFQDGRYV"; //lights
+const char * myReadAPIKey2 = "K3BCBMP406BH3CBJ"; //AC unit
 
 //GPIO pins
 int heater = D2;
 int light = D3;
 int heaterADC = A3;
 int lightADC = A4;
+int counter = 0;
+int avtemp = 0; 
+int avlight = 0;
 
 void setup()
 {
-      pinMode(heater, OUTPUT);               // sets pin as output
-      pinMode(light, OUTPUT);               // sets pin as output
-      ThingSpeak.begin(client);
+    // Makuing sure the Serial Terminal app is closed before powering the device
+    //Serial.begin(9600);
+    
+    pinMode(heater, OUTPUT);               // sets pin as output
+    pinMode(light, OUTPUT);               // sets pin as output
+    ThingSpeak.begin(client);
 }
 
 void loop()
 {
+    counter++;
+    Spark.publish("counter", String(counter), PRIVATE);
+    
     AC_unit();
     lights();
-    thermister_temp(analogRead(heaterADC));
-    thermister_light(analogRead(lightADC));
-    delay(10000); 
-}
-
-//function to read temperature
-void thermister_temp(int val)
-{
- String temp = String(val);
- Spark.publish("temp", temp, PRIVATE);
-}
-
-//function to read light
-void thermister_light(int val)
-{
- String light = String(val);
- Spark.publish("light", light, PRIVATE);
+    
+    avtemp = analogRead(heaterADC) + avtemp;
+    avlight = analogRead(lightADC) + avlight;
+    
+    Spark.publish("average-light", String(avlight), PRIVATE);
+    Spark.publish("average-temp", String(avtemp), PRIVATE);
+    
+    if (counter >= 120)
+    {
+        avtemp = avtemp / counter;
+        avlight = avlight / counter;
+        
+        Spark.publish("light", String(avlight), PRIVATE);
+        Spark.publish("temp", String(avtemp), PRIVATE);
+        
+        counter = 1;
+        avtemp = 0;
+        avlight = 0;
+    }
+    
+    System.sleep(D0, RISING, 8);
 }
 
 //function to turn AC unit on/off
 void AC_unit()
 {
-    int led1 = ThingSpeak.readIntField(LEDS_ChannelNumber, 1, myReadAPIKey);
+    int led1 = ThingSpeak.readIntField(AC_UNIT_LEDS_ChannelNumber, 1, myReadAPIKey2);
     String led_1 = String(led1);
 
     //NOTICE 2 is on, 1 os off, 0 is not an option
-
     if(led1 != 0)
     {
         //turns the LED on
@@ -73,11 +88,10 @@ void AC_unit()
 //function to turn AC unit on/off
 void lights()
 {
-    int led2 = ThingSpeak.readIntField(LEDS_ChannelNumber, 2, myReadAPIKey);
+    int led2 = ThingSpeak.readIntField(LIGHTS_LEDS_ChannelNumber, 1, myReadAPIKey1);
     String led_2 = String(led2);
 
     //NOTICE 2 is on, 1 os off, 0 is not an option
-
     if(led2 != 0)
     {
         //turns the LED on
