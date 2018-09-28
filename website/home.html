@@ -32,7 +32,7 @@
 				var response1 = JSON.parse(response);
 				if (response1.field1 == 2)
 					{
-						document.getElementById("temp-status").style.backgroundImage = "url('lampon.png')";
+						document.getElementById("temp-status").style.backgroundImage = "url('pictures/lampon.png')";
 						document.getElementById("temp_btn_ON").style.backgroundColor = "green";
 						document.getElementById("temp_btn_OFF").style.backgroundColor = "grey";
 					}	
@@ -50,7 +50,7 @@
 				var response1 = JSON.parse(response);
 				if (response1.field1 == 1)
 					{
-						document.getElementById("temp-status").style.backgroundImage = "url('lampoff.png')";
+						document.getElementById("temp-status").style.backgroundImage = "url('pictures/lampoff.png')";
 						document.getElementById("temp_btn_OFF").style.backgroundColor = "green";
 						document.getElementById("temp_btn_ON").style.backgroundColor = "grey";
 					}
@@ -68,7 +68,7 @@
 				var response1 = JSON.parse(response);
 				if (response1.field1 == 2)
 					{
-						document.getElementById("light-status").style.backgroundImage = "url('lampon.png')";
+						document.getElementById("light-status").style.backgroundImage = "url('pictures/lampon.png')";
 						document.getElementById("lights_btn_ON").style.backgroundColor = "green";
 						document.getElementById("lights_btn_OFF").style.backgroundColor = "grey";
 					}	
@@ -86,7 +86,7 @@
 				var response1 = JSON.parse(response);
 				if (response1.field1 == 1)
 					{
-						document.getElementById("light-status").style.backgroundImage = "url('lampoff.png')";
+						document.getElementById("light-status").style.backgroundImage = "url('pictures/lampoff.png')";
 						document.getElementById("lights_btn_OFF").style.backgroundColor = "green";
 						document.getElementById("lights_btn_ON").style.backgroundColor = "grey";
 					}
@@ -111,14 +111,14 @@
 				var response1 = JSON.parse(response);
 				if (response1.feeds[0].field1 == 1)
 					{
-							document.getElementById("temp-status").style.backgroundImage = "url('lampoff.png')";
+							document.getElementById("temp-status").style.backgroundImage = "url('pictures/lampoff.png')";
 							document.getElementById("temp_btn_OFF").style.backgroundColor = "green";	
 							
 					}
 					
 				if (response1.feeds[0].field1 == 2)
 					{
-							document.getElementById("temp-status").style.backgroundImage = "url('lampon.png')";
+							document.getElementById("temp-status").style.backgroundImage = "url('pictures/lampon.png')";
 							document.getElementById("temp_btn_ON").style.backgroundColor = "green";						
 					}
 			}); 
@@ -128,14 +128,14 @@
 				var response1 = JSON.parse(response);
 				if (response1.feeds[0].field1 == 1)
 					{
-							document.getElementById("light-status").style.backgroundImage = "url('lampoff.png')";
+							document.getElementById("light-status").style.backgroundImage = "url('pictures/lampoff.png')";
 							document.getElementById("lights_btn_OFF").style.backgroundColor = "green";	
 							
 					}
 					
 				if (response1.feeds[0].field1 == 2)
 					{
-							document.getElementById("light-status").style.backgroundImage = "url('lampon.png')";
+							document.getElementById("light-status").style.backgroundImage = "url('pictures/lampon.png')";
 							document.getElementById("lights_btn_ON").style.backgroundColor = "green";						
 					}
 			}); 
