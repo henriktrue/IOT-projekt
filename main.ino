@@ -20,9 +20,6 @@ int avlight = 0;
 
 void setup()
 {
-    // Makuing sure the Serial Terminal app is closed before powering the device
-    //Serial.begin(9600);
-    
     pinMode(heater, OUTPUT);               // sets pin as output
     pinMode(light, OUTPUT);               // sets pin as output
     ThingSpeak.begin(client);
@@ -85,7 +82,7 @@ void AC_unit()
     
 }
 
-//function to turn AC unit on/off
+//function to turn lights on/off
 void lights()
 {
     int led2 = ThingSpeak.readIntField(LIGHTS_LEDS_ChannelNumber, 1, myReadAPIKey1);
