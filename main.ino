@@ -28,7 +28,7 @@ void setup()
 void loop()
 {
     counter++;
-    Spark.publish("counter", String(counter), PRIVATE);
+    Particle.publish("counter", String(counter), PRIVATE);
     
     AC_unit();
     lights();
@@ -36,16 +36,16 @@ void loop()
     avtemp = analogRead(heaterADC) + avtemp;
     avlight = analogRead(lightADC) + avlight;
     
-    Spark.publish("average-light", String(avlight), PRIVATE);
-    Spark.publish("average-temp", String(avtemp), PRIVATE);
+    Particle.publish("average-light", String(avlight), PRIVATE);
+    Particle.publish("average-temp", String(avtemp), PRIVATE);
     
     if (counter >= 120)
     {
         avtemp = avtemp / counter;
         avlight = avlight / counter;
         
-        Spark.publish("light", String(avlight), PRIVATE);
-        Spark.publish("temp", String(avtemp), PRIVATE);
+        Particle.publish("light", String(avlight), PRIVATE);
+        Particle.publish("temp", String(avtemp), PRIVATE);
         
         counter = 1;
         avtemp = 0;
@@ -68,14 +68,14 @@ void AC_unit()
         if(led1 == 2)
         {
             digitalWrite(heater, HIGH);
-            Spark.publish("LED-AC-unit", led_1, PRIVATE);
+            Particle.publish("LED-AC-unit", led_1, PRIVATE);
         }
         
         //turns the LED off
         else if(led1 == 1)
         {
             digitalWrite(heater, LOW);
-            Spark.publish("LED-AC-unit", led_1, PRIVATE);
+            Particle.publish("LED-AC-unit", led_1, PRIVATE);
         }
     
     }
@@ -95,14 +95,14 @@ void lights()
         if(led2 == 2)
         {
             digitalWrite(light, HIGH);
-            Spark.publish("LED-lights", led_2, PRIVATE);
+            Particle.publish("LED-lights", led_2, PRIVATE);
         }
         
         //turns the LED off
         else if(led2 == 1)
         {
             digitalWrite(light, LOW);
-            Spark.publish("LED-lights", led_2, PRIVATE);
+            Particle.publish("LED-lights", led_2, PRIVATE);
         }
     
     }
